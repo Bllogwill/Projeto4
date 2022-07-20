@@ -1,6 +1,8 @@
 const inputElement = document.querySelector('.new-task-input')
 const addTaskButton = document.querySelector('.new-task-button')
 
+const tasksContainer = document.querySelector('.task-container')
+
 const validateInput = () => inputElement.value.trim().length > 0
 
 const handleAddTask = () => {
@@ -15,6 +17,17 @@ const handleAddTask = () => {
 
   const taskcontent = document.createElement('p')
   taskcontent.innerText = inputElement.value
+
+  const deleteItem = document.createElement('i')
+  deleteItem.classList.add('far')
+  deleteItem.classList.add('fa-trash-alt')
+
+  taskItemContainer.appendChild(taskcontent)
+  taskItemContainer.appendChild(deleteItem)
+
+  tasksContainer.appendChild(taskItemContainer)
+
+  console.log('teste')
 }
 
 const handleInputchange = () => {
@@ -27,4 +40,4 @@ const handleInputchange = () => {
 
 addTaskButton.addEventListener('click', () => handleAddTask())
 
-inputElement.addEventListener('change', () => handleInputchange())
+inputElement.addEventListener('input', () => handleInputchange())
