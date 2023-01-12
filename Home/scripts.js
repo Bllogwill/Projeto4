@@ -88,7 +88,7 @@ const updateLocalStorage = () => {
 }
 
 const refreshTasksUsingLocalStorage = () => {
-  const tasksFromLocalStorage = JSON.parse(localStorage.getItem('tasks'))
+  const tasksFromLocalStorage = JSON.parse(localStorage.getItem('tasks')) ?? []
 
   for (const task of tasksFromLocalStorage) {
     const taskItemContainer = document.createElement('div')
@@ -102,7 +102,6 @@ const refreshTasksUsingLocalStorage = () => {
     }
 
     taskContent.addEventListener('click', () => handleClick(taskContent))
-
     const deleteItem = document.createElement('i')
     deleteItem.classList.add('far')
     deleteItem.classList.add('fa-trash-alt')
