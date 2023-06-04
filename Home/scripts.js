@@ -115,6 +115,30 @@ const refreshTasksUsingLocalStorage = () => {
 
     tasksContainer.appendChild(taskItemContainer)
   }
+
+  const getBoxMeses = window.document.getElementById("box-meses")
+
+  function getMonthName(monthNumber) {
+    const date = new Date();
+    date.setMonth(monthNumber - 1);
+
+    return date.toLocaleString('pt-BR', { month: 'long' });
+  }
+
+  for (let i = 1; i < 13; i++) {
+
+    const monthName = getMonthName(i)
+
+    const newDiv = document.createElement('div')
+
+    newDiv.classList.add('box-mes')
+
+    newDiv.append(monthName)
+
+    getBoxMeses.append(newDiv)
+
+  }
+
 }
 
 refreshTasksUsingLocalStorage()
